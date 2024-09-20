@@ -2,7 +2,6 @@ import css from "./ContactForm.module.css";
 import { useId } from "react";
 import { Formik, Field, Form, ErrorMessage } from "formik";
 import * as Yup from "yup";
-import nextId from "react-id-generator";
 
 const initialContact = {
   name: "",
@@ -26,10 +25,11 @@ const ContactForm = ({ onAdd }) => {
 
   const handleSubmit = (values, actions) => {
     onAdd({
-      id: nextId(),
+      // trick to generate unique id
+      id: (Date.now() + (Math.random().toFixed(3) * 1000)),
       ...values,
     });
-    actions.reset();
+    actions.resetForm();
   };
 
   return (
@@ -41,13 +41,27 @@ const ContactForm = ({ onAdd }) => {
         onSubmit={handleSubmit}>
         <Form className={css.form}>
           <label htmlFor={nameID}>Name</label>
-          <Field className={css.input} type="text" name="name" placeholder="..." id={nameID} />
+          <Field
+            className={css.input}
+            type="text"
+            name="name"
+            placeholder="..."
+            id={nameID}
+          />
           <ErrorMessage className={css.error} name="name" component="span" />
 
           <label htmlFor={numberID}>Phone number</label>
-          <Field className={css.input} type="text" name="number" placeholder="..." id={numberID} />
+          <Field
+            className={css.input}
+            type="text"
+            name="number"
+            placeholder="..."
+            id={numberID}
+          />
           <ErrorMessage className={css.error} name="number" component="span" />
-          <button className={css["contact-btn"]} type="submit">Add contact</button>
+          <button className={css["contact-btn"]} type="submit">
+            Add contact
+          </button>
         </Form>
       </Formik>
     </section>
