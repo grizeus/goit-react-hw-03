@@ -8,7 +8,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
 
   color: #fafafa;
-  background-image: linear-gradient(to bottom, #0c0c0c, #fafafa);
+  background-image: linear-gradient(to bottom, #6989a7 0%, #fafafa 90%);
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
@@ -43,7 +43,6 @@ a {
 }
 
 button {
-  width: 100px;
   font-size: 20px;
   padding: 5px;
   border-radius: 5px;

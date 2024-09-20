@@ -3,3 +3,26 @@
   flex-direction: column;
   gap: 12px;
 }
+
+.input {
+  width: 320px;
+  padding: 5px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  box-shadow: 0 1px 7px rgba(255, 255, 255, 0.3);
+  transition: background-color 250ms ease-in-out;
+}
+
+.input:focus,
+.input:hover {
+  outline: none;
+  background: #ccc;
+}
+
+.error {
+  color: #f11;
+}
+.contact-btn {
+  line-height: 120%;
+  width: 124px;
+}

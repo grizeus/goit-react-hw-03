@@ -33,21 +33,24 @@ const ContactForm = ({ onAdd }) => {
   };
 
   return (
-    <Formik
-      initialValues={initialContact}
-      validationSchema={validationSchema}
-      onSubmit={handleSubmit}>
-      <Form className={css.form}>
-        <label htmlFor={nameID}>Name</label>
-        <Field type="text" name="name" placeholder="..." id={nameID} />
-        <ErrorMessage name="name" component="span" />
+    <section title="Create contact form">
+      <h1>Phonebook</h1>
+      <Formik
+        initialValues={initialContact}
+        validationSchema={validationSchema}
+        onSubmit={handleSubmit}>
+        <Form className={css.form}>
+          <label htmlFor={nameID}>Name</label>
+          <Field className={css.input} type="text" name="name" placeholder="..." id={nameID} />
+          <ErrorMessage className={css.error} name="name" component="span" />
 
-        <label htmlFor={numberID}>Phone number</label>
-        <Field type="text" name="number" placeholder="..." id={numberID} />
-        <ErrorMessage name="number" component="span" />
-        <button type="submit">Add contact</button>
-      </Form>
-    </Formik>
+          <label htmlFor={numberID}>Phone number</label>
+          <Field className={css.input} type="text" name="number" placeholder="..." id={numberID} />
+          <ErrorMessage className={css.error} name="number" component="span" />
+          <button className={css["contact-btn"]} type="submit">Add contact</button>
+        </Form>
+      </Formik>
+    </section>
   );
 };
 

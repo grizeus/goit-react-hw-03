@@ -3,7 +3,7 @@ import Contact from "../Contact/Contact";
 
 const ContactList = ({ contacts, handleDelete }) => {
   return (
-    <ul className={css.contactList}>
+    <ul className={css["contact-list"]}>
       {contacts.map(({id, name, number}) => (
         <Contact
           key={id}
