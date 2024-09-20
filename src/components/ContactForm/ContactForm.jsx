@@ -1,7 +1,23 @@
 import css from "./ContactForm.module.css";
-// import { Formik } from "formik";
-// import * as Yup from "yup";
+import { Formik, Field, Form, ErrorMessage } from "formik";
+import * as Yup from "yup";
 import nextId from "react-id-generator";
+
+const initialContact = {
+  name: "",
+  number: "",
+};
+
+const validationSchema = Yup.object().shape({
+  name: Yup.string()
+    .min(3, "Too short!")
+    .max(50, "Too long!")
+    .required("Required"),
+  number: Yup.string()
+    .min(5, "Too short!")
+    .max(13, "Too long!")
+    .required("Required"),
+});
 
 const ContactForm = ({ onAdd }) => {
   const handleSubmit = e => {
